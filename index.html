@@ -97,8 +97,8 @@ if (typeof window.DeviceMotionEvent !== 'undefined') {
   window.ondevicemotion = function(e) {
     ax1 = e.accelerationIncludingGravity.x * 5;
     ay1 = e.accelerationIncludingGravity.y * 5;
-    document.getElementById('accx').textContent = 'X-Axis Acceleration: ' + ax1.toFixed(2);
-    document.getElementById('accy').textContent = 'y-Axis Acceleration: ' + ay1.toFixed(2);
+    document.getElementById('accx').textContent = 'X-Axis Acceleration: ' + e.accelerationIncludingGravity.x.toFixed(2);
+    document.getElementById('accy').textContent = 'y-Axis Acceleration: ' + e.accelerationIncludingGravity.y.toFixed(2);
   }
   console.log(ax1);
   setInterval(function() {
