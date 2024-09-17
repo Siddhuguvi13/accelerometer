@@ -108,7 +108,7 @@ if (typeof window.DeviceMotionEvent !== 'undefined') {
       
     } else {
       vx1 += ax1;  // Switch axis
-      vy1 += ay1; // Adjust for inverted axis
+      vy1 -= ay1; // Adjust for inverted axis
        // Adjust for inverted axis
       
     }
