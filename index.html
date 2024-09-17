@@ -111,7 +111,7 @@ if (typeof window.DeviceMotionEvent !== 'undefined') {
       vy2 = vy2 + ax1;
     } else {
       vx1 += ax1;  // Switch axis
-      vy1 += -ay1; // Adjust for inverted axis
+      vy1 += ay1; // Adjust for inverted axis
       vx2 += ax1;  // Switch axis for second sphere
       vy2 += -ay1; // Adjust for inverted axis
       
