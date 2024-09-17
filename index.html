@@ -45,9 +45,7 @@
 #sphere1 {
  background-color: blue;
 }
-#sphere2 {
- background-color: red;
-}
+
 #acceleration {
   font-size: 24px;
     width: 400px;
@@ -85,9 +83,9 @@
 
 <script type="text/javascript">
 var x1 = 0, y1 = 0,
-    x2 = 100, y2 = 100,  // Offset sphere2 for visibility
+   
     vx1 = 0, vy1 = 0,
-    vx2 = 0, vy2 = 0,
+    
     ax1 = 0, ay1 = 0;
 
 var sphere1 = document.getElementById("sphere1");
@@ -107,13 +105,11 @@ if (typeof window.DeviceMotionEvent !== 'undefined') {
     if (landscapeOrientation) {
       vx1 = vx1 + ay1;
       vy1 = vy1 + ax1;
-      vx2 = vx2 + ay1;
-      vy2 = vy2 + ax1;
+      
     } else {
       vx1 += ax1;  // Switch axis
       vy1 += ay1; // Adjust for inverted axis
-      vx2 += ax1;  // Switch axis for second sphere
-      vy2 += -ay1; // Adjust for inverted axis
+       // Adjust for inverted axis
       
     }
    
@@ -122,10 +118,7 @@ if (typeof window.DeviceMotionEvent !== 'undefined') {
     x1 = parseInt(x1 + vx1 / 50);
     y1 = parseInt(y1 + vy1 / 50);
 
-    vx2 = vx2 * 0.98; // Friction for sphere2
-    vy2 = vy2 * 0.98;
-    x2 = parseInt(x2 + vx2 / 30);
-    y2 = parseInt(y2 + vy2 / 30);
+    
 
     boundingBoxCheck();
 
