@@ -103,19 +103,19 @@ if (typeof window.DeviceMotionEvent !== 'undefined') {
   console.log(ax1);
   setInterval(function() {
     var landscapeOrientation = window.innerWidth / window.innerHeight > 1;
-    
+    var potrait = window.innerWidth / window.innerHeight < 1 ;
     if (landscapeOrientation) {
       vx1 = vx1 + ay1;
       vy1 = vy1 + ax1;
       vx2 = vx2 + ay1;
       vy2 = vy2 + ax1;
     } else {
-      vy1 = vy1 - ay1;
-      vx1 = vx1 + ax1;
-      vy2 = vy2 - ay1;
-      vx2 = vx2 + ax1;
+      console.log("potriat mode");
     }
-    
+    if(potrait){
+      vx1 = vx1 - ay1;
+      vy1 = vy1 - ax1;
+    }
     vx1 = vx1 * 0.98; // Friction for sphere1
     vy1 = vy1 * 0.98;
     x1 = parseInt(x1 + vx1 / 50);
@@ -141,11 +141,6 @@ function boundingBoxCheck() {
   if (x1 > document.documentElement.clientWidth - 50) { x1 = document.documentElement.clientWidth - 50; vx1 = -vx1; }
   if (y1 > document.documentElement.clientHeight - 50) { y1 = document.documentElement.clientHeight - 50; vy1 = -vy1; }
   
-  // Sphere2 boundaries
-  if (x2 < 0) { x2 = 0; vx2 = -vx2; }
-  if (y2 < 0) { y2 = 0; vy2 = -vy2; }
-  if (x2 > document.documentElement.clientWidth - 50) { x2 = document.documentElement.clientWidth - 50; vx2 = -vx2; }
-  if (y2 > document.documentElement.clientHeight - 50) { y2 = document.documentElement.clientHeight - 50; vy2 = -vy2; }
 }
 </script>
 </body>
