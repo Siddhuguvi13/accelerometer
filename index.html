@@ -110,10 +110,11 @@ if (typeof window.DeviceMotionEvent !== 'undefined') {
       vx2 = vx2 + ay1;
       vy2 = vy2 + ax1;
     } else {
-      vx1 = vx1 - ax1;
-      vy1 = vy1 -ay1;
-      vx2 = vx2 - ay1;
-      vy2 = vy2 - ax1;
+      vx1 += ax1;  // Switch axis
+      vy1 += -ay1; // Adjust for inverted axis
+      vx2 += ax1;  // Switch axis for second sphere
+      vy2 += -ay1; // Adjust for inverted axis
+      
     }
    
     vx1 = vx1 * 0.98; // Friction for sphere1
